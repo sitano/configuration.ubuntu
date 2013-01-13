@@ -1,3 +1,3 @@
 Linux Home
 ==========
-My linux environment cofiguration files
+My linux environment configuration files
