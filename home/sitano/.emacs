@@ -1,3 +1,10 @@
+; Default encoding
+(setq set-buffer-file-coding-system 'unix)
+
+; IDO
+(setq ido-enable-flex-matching t)
+(ido-mode 'both)
+
 ; No toolbar and scrollbar
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -32,7 +39,12 @@
 (load-theme 'solarized-dark t)
 
 (setq inhibit-startup-screen t)
-(custom-set-faces)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ; Distel
 ;(setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.7/emacs/"
@@ -60,4 +72,3 @@
 ;  ;; add some Distel bindings to the Erlang shell
 ;  (dolist (spec distel-shell-keys)
 ;  (define-key erlang-shell-mode-map (car spec) (cadr spec)))))
-
