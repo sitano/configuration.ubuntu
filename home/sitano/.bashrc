@@ -126,4 +126,7 @@ export PERL_MB_OPT="--install_base /home/sitano/perl5";
 export PERL_MM_OPT="INSTALL_BASE=/home/sitano/perl5";
 export PERL5LIB="/home/sitano/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/sitano/perl5/lib/perl5";
 export PATH="/home/sitano/perl5/bin:$PATH";
-export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
+
+export ALTERNATE_EDITOR=emacs EDITOR=emacs VISUAL=emacs
+
+export PATH="/opt/vagrant/bin:$PATH";
