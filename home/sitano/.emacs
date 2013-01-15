@@ -1,6 +1,9 @@
 ; Default encoding
 (setq set-buffer-file-coding-system 'unix)
 
+; Def load path
+(add-to-list 'load-path "~/.emacs.d")
+
 ; IDO
 (setq ido-enable-flex-matching t)
 (ido-mode 'both)
@@ -9,11 +12,24 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+; Parens
+(show-paren-mode 1)
+
 ; Setul tabs and indents
 (setq tab-width 4)
 (setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80))
 (setq indent-tabs-mode nil)
 (setq indent-line-function 'indent-relative)
+
+; Switching windows
+(global-set-key (kbd "C-x <up>") 'windmove-up)
+(global-set-key (kbd "C-x <down>") 'windmove-down)
+(global-set-key (kbd "C-x <right>") 'windmove-right)
+(global-set-key (kbd "C-x <left>") 'windmove-left)
+
+; Windows numbers
+(require 'window-number)
+(window-number-mode 1)
 
 ; No backup files
 (setq make-backup-files nil)
@@ -39,12 +55,7 @@
 (load-theme 'solarized-dark t)
 
 (setq inhibit-startup-screen t)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(custom-set-faces)
 
 ; Distel
 ;(setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.7/emacs/"
