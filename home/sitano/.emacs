@@ -57,6 +57,10 @@
 (setq inhibit-startup-screen t)
 (custom-set-faces)
 
+; Puppet mode
+(require 'puppet-mode)
+(add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
+
 ; Distel
 ;(setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.7/emacs/"
 ;     load-path))
