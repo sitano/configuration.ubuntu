@@ -27,12 +27,37 @@
 (global-set-key (kbd "C-x <right>") 'windmove-right)
 (global-set-key (kbd "C-x <left>") 'windmove-left)
 
+(defun my-indent-region (N)
+  (interactive "p")
+  (if mark-active
+      (progn (indent-rigidly (min (mark) (point)) (max (mark) (point)) (* N 4))
+             (setq deactivate-mark nil))
+    (self-insert-command N)))
+
+(defun my-unindent-region (N)
+  (interactive "p")
+  (if mark-active
+      (progn (indent-rigidly (min (mark) (point)) (max (mark) (point)) (* N -4))
+             (setq deactivate-mark nil))
+    (self-insert-command N)))
+
+(global-set-key ">" 'my-indent-region)
+(global-set-key "<" 'my-unindent-region)
+
 ; Windows numbers
 (require 'window-number)
 (window-number-mode 1)
 
 ; No backup files
 (setq make-backup-files nil)
+
+; Save place in closed files
+(setq save-place-file "~/.emacs.d/saveplace")
+(setq-default save-place t)
+(require 'saveplace)
+
+; Move cursor to the last available pos on scrollint
+(setq scroll-error-top-bottom t)
 
 ; Handle .gz files
 (auto-compression-mode t)
@@ -60,6 +85,13 @@
 ; Puppet mode
 (require 'puppet-mode)
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
+
+; Erlang mode
+(when (file-exists-p "/usr/local/lib/erlang")
+    (setq load-path (cons "/usr/local/lib/erlang/lib/tools-2.6.8/emacs" load-path))
+    (setq erlang-root-dir "/usr/local/lib/erlang")
+    (setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
+    (require 'erlang-start))
 
 ; Distel
 ;(setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.7/emacs/"
