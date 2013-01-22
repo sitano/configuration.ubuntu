@@ -93,6 +93,12 @@
     (setq exec-path (cons "/usr/local/lib/erlang/bin" exec-path))
     (require 'erlang-start))
 
+(when (file-exists-p "/usr/lib/erlang")
+    (setq load-path (cons "/usr/lib/erlang/lib/tools-2.6.7/emacs" load-path))
+    (setq erlang-root-dir "/usr/lib/erlang")
+    (setq exec-path (cons "/usr/lib/erlang/bin" exec-path))
+    (require 'erlang-start))
+
 ; Distel
 ;(setq load-path (cons  "/usr/lib/erlang/lib/tools-2.6.7/emacs/"
 ;     load-path))
