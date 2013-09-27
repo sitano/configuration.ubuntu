@@ -130,3 +130,19 @@ export PATH="/home/sitano/perl5/bin:$PATH";
 export ALTERNATE_EDITOR=emacs EDITOR=emacs VISUAL=emacs
 
 export PATH="/opt/vagrant/bin:$PATH";
+
+# User specific environment and startup programs
+export GOROOT=$HOME/Projects/go
+export GOOS=linux
+export GOARCH=amd64
+export PATH=$PATH:$HOME/bin:$GOROOT/bin:$HOME/scala/bin
+
+#EC2 Configuration
+export EC2_HOME=~/.ec2
+export EC2_URL=https://ec2.eu-west-1.amazonaws.com
+#export EC2_CERT=$EC2_HOME/cert-***.pem
+#export EC2_PRIVATE_KEY=$EC2_HOME/pk-***.pem
+export PATH=$PATH:$EC2_HOME/bin
+
+#Scala
+export SCALA_HOME=~/scala
