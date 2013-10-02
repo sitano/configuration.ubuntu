@@ -26,20 +26,20 @@ new_float $width
 
 # Workspaces
 set $out1 DVI-I-1
-set $out2 DVI-I-2
+set $out2 DVI-D-0
 
 workspace 1 output $out1
 workspace 2 output $out1
-workspace 3 output $out1
-workspace 4 output $out1
-workspace 5 output $out2
-workspace 6 output $out2
+workspace 3 output $out2
+workspace 4 output $out2
+workspace 5 output $out1
+workspace 6 output $out1
 workspace 7 output $out2
 workspace 8 output $out2
 
 exec i3-msg 'rename workspace 1 to "1: www"'
 exec i3-msg 'rename workspace 2 to "2: idea"'
-exec i3-msg 'rename workspace 5 to "5: msgs"'
+exec i3-msg 'rename workspace 3 to "3: msgs"'
 
 workspace www  output $out1
 workspace idea output $out1
@@ -65,7 +65,7 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 5dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Printscreen
-bindsym Print exec scrot 'f%Y-%m-%d-%s_$wx$h.png' -e 'mv $f /home/sitano/'
+bindsym Print exec scrot 'f%Y-%m-%d-%s_$wx$h.png' -e 'mv $f /home/${HOME}/'
 
 # Windows
 exec i3-msg 'workspace www; split horizontal'
@@ -149,9 +149,9 @@ bindsym $mod+a focus parent
 # switch to workspace
 bindsym $mod+1 workspace www
 bindsym $mod+2 workspace idea
-bindsym $mod+3 workspace 3
+bindsym $mod+3 workspace msgs
 bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace msgs
+bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -161,9 +161,9 @@ bindsym $mod+0 workspace 10
 # move focused container to workspace
 bindsym $mod+Shift+exclam move container to workspace www
 bindsym $mod+Shift+at move container to workspace idea
-bindsym $mod+Shift+numbersign move container to workspace 3
+bindsym $mod+Shift+numbersign move container to workspace msgs
 bindsym $mod+Shift+dollar move container to workspace 4
-bindsym $mod+Shift+percent move container to workspace msgs
+bindsym $mod+Shift+percent move container to workspace 5
 bindsym $mod+Shift+asciicircum move container to workspace 6
 bindsym $mod+Shift+ampersand move container to workspace 7
 bindsym $mod+Shift+asterisk move container to workspace 8
@@ -176,6 +176,8 @@ bindsym $mod+Shift+C reload
 bindsym $mod+Shift+P restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+F exit
+
+# bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
