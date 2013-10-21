@@ -73,6 +73,10 @@
 (require 'whitespace)
 (global-whitespace-mode 1) 
 
+; Duplicate line
+(require 'duplicate-line)
+(global-set-key "\C-c\C-d" 'duplicate-line)
+
 ; Color theme
 (when (featurep 'color-theme)
   (require 'color-theme))
