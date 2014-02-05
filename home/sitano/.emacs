@@ -146,6 +146,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(quack-programs (quote ("racket" "bigloo" "csi" "csi -hygienic" "drracket" "gosh" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "mred -z" "mzscheme" "mzscheme -M errortrace" "mzscheme -il r6rs" "mzscheme -il typed-scheme" "mzscheme3m" "mzschemecgc" "rcracket" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi")))
  '(whitespace-line-column 1024)
  '(whitespace-style (quote (face tabs spaces trailing space-before-tab newline indentation space-after-tab space-mark tab-mark newline-mark))))
 
@@ -161,6 +162,29 @@
     (list "~/.emacs.d/eflymake-master/eflymake" (list local-file))))
 
 (add-to-list 'flymake-allowed-file-name-masks '("\\.erl\\'" flymake-erlang-init))
- 
+
 (defun my-erlang-mode-hook () (flymake-mode 1))
 (add-hook 'erlang-mode-hook 'my-erlang-mode-hook)
+
+; AutoComplete 1.3.1
+(add-to-list 'load-path "~/.emacs.d/auto-complete-1.3.1")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-1.3.1/dict")
+(ac-config-default)
+
+; Go
+(add-to-list 'load-path "~/.emacs.d/go")
+(require 'go-mode-load)
+
+; Goflymake
+(add-to-list 'load-path "~/Projects/gocode/src/github.com/dougm/goflymake")
+(require 'go-flymake)
+
+; Goflycheck (required flycheck, install via cask)
+;(add-to-list 'load-path "~/.emacs.d/goflymake")
+;(require 'go-flycheck)
+
+; Gocode
+(add-to-list 'load-path "~/Projects/gocode/src/github.com/nsf/gocode/emacs")
+(require 'go-autocomplete)
+(require 'auto-complete-config)
