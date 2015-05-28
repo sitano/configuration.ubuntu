@@ -1,0 +1,3 @@
+" vim +BundleInstall! +BundleClean +q
+Bundle 'spf13/vim-autoclose'
+Bundle 'phildawes/racer'
