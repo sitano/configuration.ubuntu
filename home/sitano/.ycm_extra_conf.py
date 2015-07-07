@@ -38,7 +38,8 @@ flags = [
 '-Wall',
 '-Wextra',
 '-Werror',
-'-Wc++98-compat',
+# '-Wc++98-compat',
+'-Wc++11-extensions',
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-fexceptions',
@@ -59,10 +60,10 @@ flags = [
 # For a C project, you would set this to 'c' instead of 'c++'.
 '-x',
 'c++',
-'-isystem',
-'/usr/include',
+'-isystem', '/usr/include',
+'-isystem', '/usr/include/c++/4.8',
+'-isystem', '/usr/include/x86_64-linux-gnu/c++/4.8'
 ]
-
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for
