@@ -141,7 +141,7 @@ export PATH=$PATH:$HOME/bin:$GOROOT/bin:$GOPATH/bin:$HOME/scala/bin
 export PATH=$PATH:$HOME/.cask/bin
 
 # Rust
-export RUST_SRC_PATH=/usr/local/rustc-1.0.0/src
+export RUST_SRC_PATH=/usr/local/rustc-1.1.0/src
 
 #EC2 Configuration
 #export EC2_HOME=~/.ec2
