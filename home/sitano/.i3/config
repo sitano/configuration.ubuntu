@@ -79,7 +79,7 @@ assign [class="Chromium-browser"] www
 assign [class="Telegram"] chat
 assign [class="Skype"] chat
 assign [class="Thg"] chat
-assign [class="jetbrains-idea"] idea
+assign [class="jetbrains-idea"] code
 
 exec chromium-browser
 exec skype
