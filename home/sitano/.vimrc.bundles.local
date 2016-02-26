@@ -1,3 +1,6 @@
 " vim +BundleInstall! +BundleClean +q
 Bundle 'spf13/vim-autoclose'
 Bundle 'phildawes/racer'
+Bundle 'evanmiller/nginx-vim-syntax'
+
+Plugin 'vim-airline/vim-airline-themes'

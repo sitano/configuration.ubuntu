@@ -1,3 +1,3 @@
 " let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
-let g:spf13_bundle_groups=['general', 'writing', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc', 'scala', 'youcompleteme',]
+let g:spf13_bundle_groups=['general', 'writing', 'programming', 'ruby', 'python', 'javascript', 'html', 'misc', 'youcompleteme', 'go', 'haskell']
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
