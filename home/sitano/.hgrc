@@ -30,10 +30,9 @@ record =
 share = 
 
 [web]
-cacerts = /etc/pki/tls/certs/ca-bundle.crt
+cacerts = /etc/ssl/certs/ca-certificates.crt
 encoding = UTF-8
 push_ssl = False
-
 
 [diff]
 nodates = True
