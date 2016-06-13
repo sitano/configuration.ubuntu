@@ -10,8 +10,12 @@ ZSH_THEME="agnoster"
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
 
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="false"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -52,22 +56,18 @@ repo sbt scala sfffe svn svn-fast-info vagrant node npm nvm composer phing bundl
 capistrano gem jruby pow rake rbenv ruby rvm thor zeus fabric pip python virtualenv
  debian systemd)
 
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
-export PATH="/opt/packer:/opt/vagrant/bin:/home/sitano/perl5/bin:/opt/packer:/opt/vagrant/bin:/home/sitano/perl5/bin:/home/sitano/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/sitano/bin:/home/sitano/Projects/go/bin:/home/sitano/Projects/gocode/bin:/home/sitano/scala/bin:/home/sitano/.cask/bin:/home/sitano/.ec2/bin:/home/sitano/bin:/home/sitano/Projects/go/bin:/home/sitano/Projects/gocode/bin:/home/sitano/scala/bin:/home/sitano/.cask/bin:/home/sitano/.ec2/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+source $ZSH/oh-my-zsh.sh
+
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -75,11 +75,31 @@ export PATH="/opt/packer:/opt/vagrant/bin:/home/sitano/perl5/bin:/opt/packer:/op
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+export LESS_TERMCAP_mb=$'\033[01;31m'
+export LESS_TERMCAP_md=$'\033[01;38;5;74m'
+export LESS_TERMCAP_me=$'\033[0m'
+export LESS_TERMCAP_se=$'\033[0m'
+export LESS_TERMCAP_so=$'\033[38;5;246m'
+export LESS_TERMCAP_ue=$'\033[0m'
+export LESS_TERMCAP_us=$'\033[04;38;5;146m'
+
+export PATH="/opt/vagrant/bin:$PATH";
+export PATH="/opt/packer:$PATH";
+
+# User specific environment and startup programs
+export GOROOT=$HOME/Projects/go
+export GOPATH=$HOME/Projects/gocode
+export GOOS=linux
+export GOARCH=amd64
+export PATH=$PATH:$HOME/bin:$GOROOT/bin:$GOPATH/bin
+
+# Rust
+# export RUST_SRC_PATH=/usr/local/rustc-1.1.0/src
+
+# Scala
+# export SCALA_HOME=~/scala
+
+# Debian Packages
+export DEBFULLNAME="Ivan Prisyazhnyy"
+export DEBEMAIL="john.koepi@gmail.com"
+export GPG="john.koepi@gmail.com"

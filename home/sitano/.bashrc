@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        # We have color support; assume it's compliant with Ecma-48
-        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-        # a case would tend to support setf rather than setaf.)
-        color_prompt=yes
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
     else
-        color_prompt=
+	color_prompt=
     fi
 fi
 
@@ -83,6 +83,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -121,13 +124,6 @@ export LESS_TERMCAP_se=$'\033[0m'
 export LESS_TERMCAP_so=$'\033[38;5;246m'
 export LESS_TERMCAP_ue=$'\033[0m'
 export LESS_TERMCAP_us=$'\033[04;38;5;146m'
-export PERL_LOCAL_LIB_ROOT="/home/sitano/perl5";
-export PERL_MB_OPT="--install_base /home/sitano/perl5";
-export PERL_MM_OPT="INSTALL_BASE=/home/sitano/perl5";
-export PERL5LIB="/home/sitano/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/sitano/perl5/lib/perl5";
-export PATH="/home/sitano/perl5/bin:$PATH";
-
-export ALTERNATE_EDITOR=emacs EDITOR=emacs VISUAL=emacs
 
 export PATH="/opt/vagrant/bin:$PATH";
 export PATH="/opt/packer:$PATH";
@@ -137,21 +133,13 @@ export GOROOT=$HOME/Projects/go
 export GOPATH=$HOME/Projects/gocode
 export GOOS=linux
 export GOARCH=amd64
-export PATH=$PATH:$HOME/bin:$GOROOT/bin:$GOPATH/bin:$HOME/scala/bin
-export PATH=$PATH:$HOME/.cask/bin
+export PATH=$PATH:$HOME/bin:$GOROOT/bin:$GOPATH/bin
 
 # Rust
-export RUST_SRC_PATH=/usr/local/rustc-1.1.0/src
-
-#EC2 Configuration
-#export EC2_HOME=~/.ec2
-#export EC2_URL=https://ec2.eu-west-1.amazonaws.com
-#export EC2_CERT=$EC2_HOME/cert-.pem
-#export EC2_PRIVATE_KEY=$EC2_HOME/pk-.pem
-export PATH=$PATH:$EC2_HOME/bin
+# export RUST_SRC_PATH=/usr/local/rustc-1.1.0/src
 
 #Scala
-export SCALA_HOME=~/scala
+# export SCALA_HOME=~/scala
 
 # Debian Packages
 export DEBFULLNAME="Ivan Prisyazhniy"
