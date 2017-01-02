@@ -75,8 +75,9 @@ export EDITOR='vim'
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="$HOME/.ssh/john.koepi.rsa"
 
+# Less Scheme
 export LESS_TERMCAP_mb=$'\033[01;31m'
 export LESS_TERMCAP_md=$'\033[01;38;5;74m'
 export LESS_TERMCAP_me=$'\033[0m'
@@ -85,8 +86,11 @@ export LESS_TERMCAP_so=$'\033[38;5;246m'
 export LESS_TERMCAP_ue=$'\033[0m'
 export LESS_TERMCAP_us=$'\033[04;38;5;146m'
 
-export PATH="/opt/vagrant/bin:$PATH";
-export PATH="/opt/packer:$PATH";
+export PATH="/opt/vagrant/bin:$PATH"
+export PATH="/opt/packer:$PATH"
+
+# Haskell / Stack
+export PATH="$HOME/.local/bin:$PATH"
 
 # User specific environment and startup programs
 export GOROOT=$HOME/Projects/go
@@ -96,12 +100,13 @@ export GOARCH=amd64
 export PATH=$PATH:$HOME/bin:$GOROOT/bin:$GOPATH/bin
 
 # Rust
+export PATH="$HOME/.cargo/bin:$PATH"
 # export RUST_SRC_PATH=/usr/local/rustc-1.1.0/src
 
 # Scala
 # export SCALA_HOME=~/scala
 
 # Debian Packages
-export DEBFULLNAME="Ivan Prisyazhnyy"
+export DEBFULLNAME="Ivan Prisyazhniy"
 export DEBEMAIL="john.koepi@gmail.com"
 export GPG="john.koepi@gmail.com"

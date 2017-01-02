@@ -159,6 +159,9 @@ export LESS_TERMCAP_us=$'\033[04;38;5;146m'
 export PATH="/opt/vagrant/bin:$PATH";
 export PATH="/opt/packer:$PATH";
 
+# Haskell / Stack
+export PATH="~/.local/bin:$PATH";
+
 # User specific environment and startup programs
 export GOROOT=$HOME/Projects/go
 export GOPATH=$HOME/Projects/gocode
@@ -167,9 +170,10 @@ export GOARCH=amd64
 export PATH=$PATH:$HOME/bin:$GOROOT/bin:$GOPATH/bin
 
 # Rust
+export PATH="~/.cargo/bin:$PATH";
 # export RUST_SRC_PATH=/usr/local/rustc-1.1.0/src
 
-#Scala
+# Scala
 # export SCALA_HOME=~/scala
 
 # Debian Packages
