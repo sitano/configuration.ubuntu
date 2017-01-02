@@ -63,6 +63,8 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 
 source $ZSH/oh-my-zsh.sh
 
+alias ll='ls -alh'
+
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
