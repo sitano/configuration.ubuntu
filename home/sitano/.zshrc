@@ -65,6 +65,9 @@ source $ZSH/oh-my-zsh.sh
 
 alias ll='ls -alh'
 
+alias ghc='stack exec -- ghc'
+alias ghci='stack exec -- ghci'
+
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
