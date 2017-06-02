@@ -158,6 +158,13 @@ export LESS_TERMCAP_se=$'\033[0m'
 export LESS_TERMCAP_so=$'\033[38;5;246m'
 export LESS_TERMCAP_ue=$'\033[0m'
 export LESS_TERMCAP_us=$'\033[04;38;5;146m'
+export PERL_LOCAL_LIB_ROOT="/home/sitano/perl5";
+export PERL_MB_OPT="--install_base /home/sitano/perl5";
+export PERL_MM_OPT="INSTALL_BASE=/home/sitano/perl5";
+export PERL5LIB="/home/sitano/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/sitano/perl5/lib/perl5";
+export PATH="/home/sitano/perl5/bin:$PATH";
+
+export ALTERNATE_EDITOR=vim EDITOR=vim VISUAL=vim
 
 export PATH="/opt/vagrant/bin:$PATH";
 export PATH="/opt/packer:$PATH";
@@ -170,16 +177,39 @@ export GOROOT=$HOME/Projects/go
 export GOPATH=$HOME/Projects/gocode
 export GOOS=linux
 export GOARCH=amd64
-export PATH=$PATH:$HOME/bin:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$HOME/bin:$GOROOT/bin:$GOPATH/bin:$HOME/scala/bin
+export PATH=$PATH:$HOME/.cask/bin
+
+# Node.JD
+export PATH=$PATH:$HOME/Projects/node-v7.9.0-linux-x64/bin
 
 # Rust
 export PATH="~/.cargo/bin:$PATH";
-# export RUST_SRC_PATH=/usr/local/rustc-1.1.0/src
+export RUST_SRC_PATH=/usr/local/rustc-1.1.0/src
 
-# Scala
-# export SCALA_HOME=~/scala
+#EC2 Configuration
+export EC2_HOME=~/.ec2
+export EC2_URL=https://ec2.eu-west-1.amazonaws.com
+export EC2_CERT=
+export EC2_PRIVATE_KEY=
+export PATH=$PATH:$EC2_HOME/bin
+
+#Scala
+export SCALA_HOME=~/scala
 
 # Debian Packages
 export DEBFULLNAME="Ivan Prisyazhniy"
 export DEBEMAIL="john.koepi@gmail.com"
 export GPG="john.koepi@gmail.com"
+
+# WeChall
+export WECHALLUSER="sitano"
+export WECHALLTOKEN=""
+
+# AWS completion
+source '/home/sitano/.local/bin/aws_bash_completer'
+
+# Azure completion
+source '/usr/local/az/az.completion'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
