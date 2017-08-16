@@ -56,12 +56,14 @@ source $ZSH/oh-my-zsh.sh
 
 alias ll='ls -alh'
 
+alias afind='ack-grep -il'
+
 alias ghc='stack exec -- ghc'
 alias ghci='stack exec -- ghci'
 
 # User configuration
 
-export PATH="/opt/packer:/opt/vagrant/bin:/home/sitano/perl5/bin:/opt/packer:/opt/vagrant/bin:/home/sitano/perl5/bin:/home/sitano/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/sitano/Projects/go/bin:/home/sitano/Projects/gocode/bin:/home/sitano/scala/bin:/home/sitano/.cask/bin:/home/sitano/.ec2/bin:/home/sitano/.cargo/bin:/home/sitano/.local/bin"
+export PATH="/opt/packer:/opt/vagrant/bin:/home/sitano/perl5/bin:/opt/packer:/opt/vagrant/bin:/home/sitano/perl5/bin:/home/sitano/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/sitano/bin:/home/sitano/Projects/go/bin:/home/sitano/Projects/gocode/bin:/home/sitano/scala/bin:/home/sitano/.cask/bin:/home/sitano/.ec2/bin:/home/sitano/bin:/home/sitano/Projects/go/bin:/home/sitano/Projects/gocode/bin:/home/sitano/scala/bin:/home/sitano/.cask/bin:/home/sitano/.ec2/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -108,7 +110,7 @@ export PERL_MM_OPT="INSTALL_BASE=/home/sitano/perl5"
 export PERL5LIB="/home/sitano/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/sitano/perl5/lib/perl5"
 export PATH="/home/sitano/perl5/bin:$PATH"
 
-export ALTERNATE_EDITOR=emacs EDITOR=emacs VISUAL=emacs
+export ALTERNATE_EDITOR=vim EDITOR=vim VISUAL=vim
 
 export PATH="/opt/vagrant/bin:$PATH"
 export PATH="/opt/packer:$PATH"
@@ -124,14 +126,18 @@ export GOARCH=amd64
 export PATH=$PATH:$HOME/bin:$GOROOT/bin:$GOPATH/bin:$HOME/scala/bin
 export PATH=$PATH:$HOME/.cask/bin
 
-# Node.JD
+# Node.JS
 export PATH=$PATH:$HOME/Projects/node-v7.9.0-linux-x64/bin
 
-#EC2 Configuration
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH";
+export RUST_SRC_PATH="$HOME/Projects/rust/src"
+
+# EC2 Configuration
 export EC2_HOME=~/.ec2
-export EC2_URL=https://ec2.eu-west-1.amazonaws.com
-export EC2_CERT=
-export EC2_PRIVATE_KEY=
+export EC2_URL=https://ec2..amazonaws.com
+export EC2_CERT=$EC2_HOME/.pem
+export EC2_PRIVATE_KEY=$EC2_HOME/.pem
 export PATH=$PATH:$EC2_HOME/bin
 
 #Scala
@@ -147,9 +153,19 @@ export WECHALLUSER="sitano"
 export WECHALLTOKEN=""
 
 # AWS completion
-source '/home/sitano/.local/bin/aws_zsh_completer.sh'
+if [ -f '/home/sitano/.local/bin/aws_zsh_completer.sh' ]; then source '/home/sitano/.local/bin/aws_zsh_completer.sh'; fi
 
 # AWS Azure
-source '/usr/local/az/az.completion'
+if [ -f '/usr/local/az/az.completion' ]; then source '/usr/local/az/az.completion'; fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# FZF
+if [ -f '/home/sitano/.fzf.zsh' ]; then source '/home/sitano/.fzf.zsh'; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/sitano/Projects/google-cloud-sdk/path.zsh.inc' ]; then source '/home/sitano/Projects/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/sitano/Projects/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/sitano/Projects/google-cloud-sdk/completion.zsh.inc'; fi
+
+# KubeCtl
+if [ $commands[kubectl]  ]; then source <(kubectl completion zsh); fi

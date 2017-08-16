@@ -158,40 +158,41 @@ export LESS_TERMCAP_se=$'\033[0m'
 export LESS_TERMCAP_so=$'\033[38;5;246m'
 export LESS_TERMCAP_ue=$'\033[0m'
 export LESS_TERMCAP_us=$'\033[04;38;5;146m'
-export PERL_LOCAL_LIB_ROOT="/home/sitano/perl5";
-export PERL_MB_OPT="--install_base /home/sitano/perl5";
-export PERL_MM_OPT="INSTALL_BASE=/home/sitano/perl5";
-export PERL5LIB="/home/sitano/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/sitano/perl5/lib/perl5";
-export PATH="/home/sitano/perl5/bin:$PATH";
+export PERL_LOCAL_LIB_ROOT="/home/sitano/perl5"
+export PERL_MB_OPT="--install_base /home/sitano/perl5"
+export PERL_MM_OPT="INSTALL_BASE=/home/sitano/perl5"
+export PERL5LIB="/home/sitano/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/sitano/perl5/lib/perl5"
+export PATH="/home/sitano/perl5/bin:$PATH"
 
 export ALTERNATE_EDITOR=vim EDITOR=vim VISUAL=vim
 
-export PATH="/opt/vagrant/bin:$PATH";
-export PATH="/opt/packer:$PATH";
+export PATH="/opt/vagrant/bin:$PATH"
+export PATH="/opt/packer:$PATH"
 
 # Haskell / Stack
-export PATH="~/.local/bin:$PATH";
+export PATH="$HOME/.local/bin:$PATH"
 
 # User specific environment and startup programs
 export GOROOT=$HOME/Projects/go
 export GOPATH=$HOME/Projects/gocode
 export GOOS=linux
 export GOARCH=amd64
+
 export PATH=$PATH:$HOME/bin:$GOROOT/bin:$GOPATH/bin:$HOME/scala/bin
 export PATH=$PATH:$HOME/.cask/bin
 
-# Node.JD
+# Node.JS
 export PATH=$PATH:$HOME/Projects/node-v7.9.0-linux-x64/bin
 
 # Rust
-export PATH="~/.cargo/bin:$PATH";
-export RUST_SRC_PATH=/usr/local/rustc-1.1.0/src
+export PATH="$HOME/.cargo/bin:$PATH";
+export RUST_SRC_PATH="$HOME/Projects/rust/src"
 
-#EC2 Configuration
+# EC2 Configuration
 export EC2_HOME=~/.ec2
-export EC2_URL=https://ec2.eu-west-1.amazonaws.com
-export EC2_CERT=
-export EC2_PRIVATE_KEY=
+export EC2_URL=https://ec2..amazonaws.com
+export EC2_CERT=$EC2_HOME/.pem
+export EC2_PRIVATE_KEY=$EC2_HOME/.pem
 export PATH=$PATH:$EC2_HOME/bin
 
 #Scala
@@ -207,9 +208,19 @@ export WECHALLUSER="sitano"
 export WECHALLTOKEN=""
 
 # AWS completion
-source '/home/sitano/.local/bin/aws_bash_completer'
+if [ -f '/home/sitano/.local/bin/aws_zsh_completer.sh' ]; then source '/home/sitano/.local/bin/aws_zsh_completer.sh'; fi
 
-# Azure completion
-source '/usr/local/az/az.completion'
+# AWS Azure
+if [ -f '/usr/local/az/az.completion' ]; then source '/usr/local/az/az.completion'; fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# FZF
+if [ -f '/home/sitano/.fzf.zsh' ]; then source '/home/sitano/.fzf.zsh'; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/sitano/Projects/google-cloud-sdk/path.zsh.inc' ]; then source '/home/sitano/Projects/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/sitano/Projects/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/sitano/Projects/google-cloud-sdk/completion.zsh.inc'; fi
+
+# KubeCtl
+if [ $commands[kubectl]  ]; then source <(kubectl completion zsh); fi
