@@ -186,7 +186,7 @@ export PATH=$PATH:$HOME/Projects/node-v7.9.0-linux-x64/bin
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH";
-export RUST_SRC_PATH="$HOME/Projects/rust/src"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 # EC2 Configuration
 export EC2_HOME=~/.ec2
