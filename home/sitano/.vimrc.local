@@ -29,7 +29,7 @@ colorscheme darcula
 "}
 
 " Rust / racer {
-"    set hidden
-"    let g:racer_cmd = \"~/Projets/racer/target/release/racer"
-"    let $RUST_SRC_PATH="/usr/local/rustc-1.1.0/src"
+    set hidden
+    let g:racer_cmd = "~/.cargo/bin/racer"
+    let $RUST_SRC_PATH = "~/.cargo/registry/src/github.com-1ecc6299db9ec823/racer-2.0.6/src/racer"
 " }"
