@@ -132,7 +132,7 @@ mode "resize" {
 bindsym $mod+p mode "resize"
 
 # Keyboard map
-exec --no-startup-id setxkbmap "us(colemak), ru" ",winkeys" "grp:alt_shift_toggle"
+exec --no-startup-id setxkbmap "us(colemak), ru" ",winkeys" "grp:caps_toggle"
 
 # Lockscreen
 bindsym $mod+l exec i3lock -u -d -t -i /home/sitano/.i3/ubuntu-linux-final-2534.png -c 000000
